@@ -9,6 +9,7 @@ Mezi zakladni zasady objektove orientovaneho programovani bych zvolil tyto:
 * **Programovani proti rozhrani** a uprednostnovat rozhrani pred tridami v dedeni
   * Jedna z vyhod uprednostnovani rozhrani (interface) pri dedeni je ze muzete dedit od vice rozhrani
   * Vazba mezi tridami (pri pouziti treba abstract class) pri dedeni je velmi silna (vetsinou nechceme)
+  * Abstraktni tridy se vyplati pokud vime ze se bude API menit - neni nutnost velkych zmen (pridani metody k rozhrani nas ale nuti implementovat ji vsude kde se pouziva toto rozhrani)
 * Soudrznost (**Cohesion**) tridy
   * Kazda trida by mela soustredovat na jednu konkretni vec -> snadny testing
 * Nizka vzajemna provazanost (**Coupling**)
