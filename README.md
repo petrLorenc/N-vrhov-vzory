@@ -22,3 +22,24 @@ Mezi zakladni zasady objektove orientovaneho programovani bych zvolil tyto:
 
 # Simple factory method - Jednoducha tovarni funkce
 Jedna se o **statickou metodu** kterou budeme volat na tride k navraceni instance teto tridy. Mezi hlavni vyhody bych zaradil ze se nam nutne **nemusi vratit novy objekt** (na rozdil od konstruktoru, ktery ho vzdy vytvori) a neni nutnost volat metody predka hned jako prvni vec. **Muze dokonce vratit instanci nektereho potomka**. V Android prostredi se casto vola metoda **newInstance**(...) ktera svym zpusobem je SFM (z volby jmena by melo byt jasne co funkce vraci - novy objek, singleton ...).
+
+#  Immutable object
+* Snazit se pouzivat nemenne objekty (immutable object)
+  * Snadnejsi kontrola stavu objektu
+  * **Thread-safe**
+  * Neni nutne pouzivat defenzivni ziskavani objektu (tj. vrati kopii promenne - aby se nemenil vnitrni stav objektu odkud promnenou bereme)
+  * pouziti == je na testovani referenci jestli ukazuji na stejne misto, Object.equal(Object) se vaze k metode equals a hashCode
+  * pokud se pokusim zmenit immutable objekt vetsinou dostanu novy a neprojde pres == test (String je immutable)
+```Java
+String s1 = "a"; // s1 point to adress 0x000001 where is "a"
+s2 = s1; // s2 point to adress 0x000001 where is "a"
+s1 = s1 + "b"; // it take whatever s1 is pointing to and create new object at adress 0x000002 and add "b"
+System.out.println(s1 == s2); // prints false
+```
+```Java
+StringBuffer sb = new StringBuffer("a"); // sb point to adress 0x000001 where is "a"
+StringBuffer sb2 = sb; // sb2 point to adress 0x000001 where is "a"
+sb.append("b"); // doenst create new object and just add "b" to "a" to get "ab"
+System.out.println(sb == sb2); // prints true
+```
+Difference between mutable and imutable http://stackoverflow.com/a/30835852/1551954 (examples from there)
