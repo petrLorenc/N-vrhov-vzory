@@ -57,4 +57,6 @@ Difference between mutable and imutable http://stackoverflow.com/a/30835852/1551
   3. Definujeme metodu tridy **Sluzebnik** ktera jako parametr bere objekt ktery implementuje nami vytvoreny interface
 * Zpusob pouziti (ve smyslu kdo na koho vidi)
   * **Uzivatel vidi sluzebnika** a objekty trid -> preda sluzebnikovi jako parametr objekt tridy u ktere chce vyvolat pozadovane chovani
+  * ![Wikipedie](https://upload.wikimedia.org/wikipedia/commons/3/38/DesignPatternServantFigure1.png "Uzivatel vidi sluzebnika")
   * **Sluzebnika vidi objekty trid** na kterym ma bych chovani vyvolane -> zavolaji sluzebnika a jako parametr daji "this"
+  * ![Wikipedie](https://upload.wikimedia.org/wikipedia/commons/4/41/DesignPatternServantFigure2.png "Sluzebnika vidi objekty trid")
