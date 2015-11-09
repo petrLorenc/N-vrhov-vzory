@@ -60,3 +60,10 @@ Difference between mutable and imutable http://stackoverflow.com/a/30835852/1551
   * ![Wikipedie](https://upload.wikimedia.org/wikipedia/commons/3/38/DesignPatternServantFigure1.png "Uzivatel vidi sluzebnika")
   * **Sluzebnika vidi objekty trid** na kterym ma bych chovani vyvolane -> zavolaji sluzebnika a jako parametr daji "this"
   * ![Wikipedie](https://upload.wikimedia.org/wikipedia/commons/4/41/DesignPatternServantFigure2.png "Sluzebnika vidi objekty trid")
+
+# Prazdny objekt - Null object
+* Slouzi k osetreni toho aby nenastavala NullPointerException a jine podobne vyjimky (tim ze priradime do promenne "null"). 
+ 1. Tvori se tak ze vezmeme objekt a vsechny jeho metody presunume do interface (nebo abstraktni tridy) a nas soucasny objekt bude implementovat (resp. dedit) chovani + vytvorime NullObject tohoto rozhrani kde v impementaci metod osetrime null (nejcasteji budou mit prazdne telo a nebo vracet dohodnutou hodnotu) -> budem ale muset predavat predka (interface)
+ 2. Nebo budeme prazdny objekt dedit od pozadovane tridy bez vytvareni abstrace (popr. rozhrani) a jenom prekryjeme metody
+*  Prazdny objekt by mel byl navrzen **jako singleton** (o tom pozdeji)
+*  ![tutorialspoint](http://www.tutorialspoint.com/design_pattern/images/null_pattern_uml_diagram.jpg "Prazdny objekt")
