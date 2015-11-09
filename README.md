@@ -48,3 +48,13 @@ Difference between mutable and imutable http://stackoverflow.com/a/30835852/1551
 * **externi** - slouzi k vraceni vice nez jedne navratove hodnoty (volajici a cilova trida ma prepravku videt)
 * jsou definovany jednoucelove a nemeli by se "recyklovat" (tj pouzivat treba Point k prenaseni H/W jenom proto ze to je take dva INTegery)
 * v jave to jsou Point, Dimension, Rectangle ... (definovany jako mutable)
+
+# Sluzebnik - Servant
+* Pokud mame skupinu trid (nemusi mit nutne stejneho predka - kdyby meli je lepsi definovat metody v predkovi) a chceme na nich **definovat** nejakou **schopnost** tak aby **nevznikli duplicity kodu** muzeme zavest Sluzebnika
+* Nejlepe si ho popiseme na prikladu vytvoreni : 
+  1. **Analizujeme ktere hodnoty potrebuje k provedeni akci** ktere maji mit objekty spolecne a co se zmeni na objektech (getPosition(), setPosition(Position p))
+  2. Nechame objekty **implementovat rozhrani**
+  3. Definujeme metodu tridy **Sluzebnik** ktera jako parametr bere objekt ktery implementuje nami vytvoreny interface
+* Zpusob pouziti (ve smyslu kdo na koho vidi)
+  * **Uzivatel vidi sluzebnika** a objekty trid -> preda sluzebnikovi jako parametr objekt tridy u ktere chce vyvolat pozadovane chovani
+  * **Sluzebnika vidi objekty trid** na kterym ma bych chovani vyvolane -> zavolaji sluzebnika a jako parametr daji "this"
