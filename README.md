@@ -43,3 +43,8 @@ sb.append("b"); // doenst create new object and just add "b" to "a" to get "ab"
 System.out.println(sb == sb2); // prints true
 ```
 Difference between mutable and imutable http://stackoverflow.com/a/30835852/1551954 (examples from there)
+# Prepravka - Crate - Messenger
+* **interni** - slouzi pro uchovani hodnot (vnitrnich stavu) nejake tridy - ukladani informaci o casovem prubehu udalosti o dni (ostatni o teto tride nemusi nic vedet)
+* **externi** - slouzi k vraceni vice nez jedne navratove hodnoty (volajici a cilova trida ma prepravku videt)
+* jsou definovany jednoucelove a nemeli by se "recyklovat" (tj pouzivat treba Point k prenaseni H/W jenom proto ze to je take dva INTegery)
+* v jave to jsou Point, Dimension, Rectangle ... (definovany jako mutable)
