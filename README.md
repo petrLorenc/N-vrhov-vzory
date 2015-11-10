@@ -67,3 +67,15 @@ Difference between mutable and imutable http://stackoverflow.com/a/30835852/1551
  2. Nebo budeme prazdny objekt dedit od pozadovane tridy bez vytvareni abstrace (popr. rozhrani) a jenom prekryjeme metody
 *  Prazdny objekt by mel byl navrzen **jako singleton** (o tom pozdeji)
 *  ![tutorialspoint](http://www.tutorialspoint.com/design_pattern/images/null_pattern_uml_diagram.jpg "Prazdny objekt")
+
+# Jedinacek - Singleton
+* V cele aplikaci se vyskutuje pouze jedna unikatni instance teto tridy (zajisteno pomoci **privatniho konstruktoru, staticke promenne a jednoduche tovarni funkci**)
+* Sva druhy inicializace
+  * **Casna inicializace**, tj. v deklaraci promenne (budeme preferovat private - pokud public tak musime vzit v uvahu ze virtualni stroj zavede tridy a inicializuje promenne ve spravnem poradi) + getSignleton() 
+   ```Java
+   private static final MySingleton mySingleton = new MySingleton();
+   ```
+  * **Odlozena inicializace** (lazy inicialization) - inicializuje az kdyz je potreba (vetsinou v getSignleton()) - lepsi pro narocnejsi inicializace - nemusi se take provest, kdyz neni potreba a usetri se vykon
+* pozor u **multi-thread aplikaci a lazy inicialization** - treba dvoji check proti null + synchronizace (co nejmensiho bloku kvuli vykonu) + u promenne uvest **volatile** (prekladace se nebudou snazit o zjednoduseni a pri kazde potrebe instanci znova nactou a ne z cache (registrech))
+* pozor take na **serializovatelnost** - sla by tak vytvorit kopie objektu (to je proti zasade Jedinacka) - musime osetrit metodu **readResolve()** a nebo neserializovat
+* lze vyuzit dedicnosti a jako sinleton vracet nektereho z potomku (pokud nejdou zanorene musime ozelet privatnosti konstruktoru)
