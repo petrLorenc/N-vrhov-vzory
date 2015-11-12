@@ -79,3 +79,36 @@ Difference between mutable and imutable http://stackoverflow.com/a/30835852/1551
 * pozor u **multi-thread aplikaci a lazy inicialization** - treba dvoji check proti null + synchronizace (co nejmensiho bloku kvuli vykonu) + u promenne uvest **volatile** (prekladace se nebudou snazit o zjednoduseni a pri kazde potrebe instanci znova nactou a ne z cache (registrech))
 * pozor take na **serializovatelnost** - sla by tak vytvorit kopie objektu (to je proti zasade Jedinacka) - musime osetrit metodu **readResolve()** a nebo neserializovat
 * lze vyuzit dedicnosti a jako sinleton vracet nektereho z potomku (pokud nejdou zanorene musime ozelet privatnosti konstruktoru)
+
+# Vyctovy typ (Enumerated type)
+* Lze pouzit jako klasicke vyctove pole bez dalsich rozsireni
+* Lze vytvorit privatni konstuktor a jako staticke verejne promnenne vyctoveho typu definuje primo instance tohoto vyctoveho typu - uchovana hodnota navic
+   ```Java
+   public enum Month {
+    JANUARY("Je-li teplo v lednu, sahá bída ke dnu."),
+    FEBRUARY("Únor bílý, pole sílí.");
+    private String weatherLore;
+
+    private Month(String weatherLore) {
+        this.weatherLore = weatherLore;
+    }
+    ...
+    }
+   ```
+* Pokud definujeme jako funkcni vyctovy typ ktery reaguje jinak na nejakou metodu - lze ulozit hodnotu navic + prvky polymorfismu
+  ```Java
+   public enum Month {
+    JANUARY{
+       public void sayName(){System.out.println("I am January")};
+    },
+    FEBRUARY{
+       public void sayName(){System.out.println("I am February")};
+    };
+
+    private Month() {}
+    abstract public void sayName();
+    ...
+    }
+   ```
+   pote k tomu pristupujeme pres rodice (predavame promnenou typu Month)
+
