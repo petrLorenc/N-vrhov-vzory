@@ -57,9 +57,17 @@ Difference between mutable and imutable http://stackoverflow.com/a/30835852/1551
   3. Definujeme metodu tridy **Sluzebnik** ktera jako parametr bere objekt ktery implementuje nami vytvoreny interface
 * Zpusob pouziti (ve smyslu kdo na koho vidi)
   * **Uzivatel vidi sluzebnika** a objekty trid -> preda sluzebnikovi jako parametr objekt tridy u ktere chce vyvolat pozadovane chovani
-  * ![Wikipedie](https://upload.wikimedia.org/wikipedia/commons/3/38/DesignPatternServantFigure1.png "Uzivatel vidi sluzebnika")
+  * ![tutorialspoint](https://upload.wikimedia.org/wikipedia/commons/3/38/DesignPatternServantFigure1.png "Uzivatel vidi sluzebnika")
   * **Sluzebnika vidi objekty trid** na kterym ma bych chovani vyvolane -> zavolaji sluzebnika a jako parametr daji "this"
   * ![Wikipedie](https://upload.wikimedia.org/wikipedia/commons/4/41/DesignPatternServantFigure2.png "Sluzebnika vidi objekty trid")
+
+# Prikaz - Command
+![Wikipedie](http://www.tutorialspoint.com/design_pattern/images/command_pattern_uml_diagram.jpg "Prikaz")
+* Podobne jako vzor Sluzebnik
+* Mam skupinu objektu a chci je doplnit o nejakou funkcnost ( definuju rozhrani jehoz "instance" predavam puvodnim objektum jako parametry funkci
+* Lze vytvoret **pole metod** (ktere implentuji definove rozhrani - zobrazeni cisel na kostce)
+* Potrebuje zpetne volani
+* https://en.wikipedia.org/wiki/Command_pattern#Java
 
 # Prazdny objekt - Null object
 * Slouzi k osetreni toho aby nenastavala NullPointerException a jine podobne vyjimky (tim ze priradime do promenne "null"). 
