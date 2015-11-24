@@ -120,3 +120,9 @@ Difference between mutable and imutable http://stackoverflow.com/a/30835852/1551
    ```
    pote k tomu pristupujeme pres rodice (predavame promnenou typu Month)
 
+#Musi vaha - Flyweight - GOF
+* Pokud se **pro urcitou skupinu objektu** (musi jich byt mnoho, aby se to vyplatilo) dari najit urcitou **skupinu "reprezentantu"** pak je tento pattern uzitecny (vykreslovani 20 kruhu o 5 barvach - neni nutne mit 20 objektu ale jen 5)
+   * **interni** charakteristiky - spolecne pro urcitou skupinu - bude interni pro reprezentanta
+   * **externi** charakteristiky - to co se bude menit (budem setovat potomi metod na instanci)
+* Hodi se vyvorit nejakou tridu ktera bude hlidat kteri reprezentanti uz jsou vytvoreni (pripadne je vracet) a v pripade potreby vytvaret nove
+* ![tutorialspoint](http://www.tutorialspoint.com/design_pattern/images/flyweight_pattern_uml_diagram.jpg "Musi vaha")
